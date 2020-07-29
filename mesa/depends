@@ -1,0 +1,5 @@
+libdrm
+libglvnd
+meson make
+wayland
+wayland-protocols

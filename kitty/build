@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+patch -p0 < nox.patch
+patch -p1 < glfw-no-dbus.patch
+
+sed -e 's/pow10/pow_10/g' -i kitty/parser.c
+python3 setup.py linux-package --prefix=$1/usr --update-check-interval=0 --verbose

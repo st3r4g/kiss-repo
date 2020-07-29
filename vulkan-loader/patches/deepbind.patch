@@ -1,0 +1,11 @@
+--- loader/vk_loader_platform.h.orig	2020-07-08 20:13:09.264511355 +0200
++++ loader/vk_loader_platform.h	2020-07-08 20:14:54.631507848 +0200
+@@ -130,7 +130,7 @@
+ // to ensure that implementation's own dependencies are first in lookup order.
+ // This may be useful when both application and driver use different versions
+ // of the same library.
+-#ifdef __linux__
++#if defined(__linux__) && defined(RTLD_DEEPBIND)
+     return dlopen(libPath, RTLD_LAZY | RTLD_LOCAL | RTLD_DEEPBIND);
+ #else
+     return dlopen(libPath, RTLD_LAZY | RTLD_LOCAL);

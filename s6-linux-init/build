@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+./configure
+
+make
+
+make install
+
+mkdir -p "$1/usr/bin"
+for f in halt init poweroff reboot shutdown telinit; do
+    ln -s /etc/s6-linux-init/current/bin/$f "$1/usr/bin/$f"
+done
+

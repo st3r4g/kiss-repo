@@ -1,0 +1,4 @@
+expat
+libffi
+libxml2
+meson make

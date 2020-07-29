@@ -1,0 +1,11 @@
+--- orig/setup.py	2020-07-19 11:33:05.742955319 +0200
++++ kitty-0.18.1/setup.py	2020-07-19 11:36:00.884949489 +0200
+@@ -632,7 +632,7 @@
+ 
+ 
+ def compile_glfw(compilation_database: CompilationDatabase) -> None:
+-    modules = 'cocoa' if is_macos else 'x11 wayland'
++    modules = 'cocoa' if is_macos else 'wayland'
+     for module in modules.split():
+         try:
+             genv = glfw.init_env(env, pkg_config, at_least_version, test_compile, module)

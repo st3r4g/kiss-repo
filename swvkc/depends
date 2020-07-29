@@ -1,0 +1,9 @@
+eudev
+libdrm
+libglvnd
+libxkbcommon
+mesa
+meson make
+vulkan-loader
+wayland
+wayland-protocols make

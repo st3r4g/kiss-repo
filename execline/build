@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+./configure --enable-shared
+
+make
+
+make install

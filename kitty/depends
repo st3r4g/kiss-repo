@@ -1,0 +1,4 @@
+fontconfig
+freetype-harfbuzz
+libxkbcommon
+ncurses make

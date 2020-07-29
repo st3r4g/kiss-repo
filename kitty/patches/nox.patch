@@ -1,0 +1,22 @@
+--- setup.py.orig	2020-07-04 09:35:24.075949086 +0200
++++ setup.py	2020-07-04 09:36:03.722947767 +0200
+@@ -340,7 +340,7 @@
+     cflags.extend(pkg_config('harfbuzz', '--cflags-only-I'))
+     font_libs.extend(pkg_config('harfbuzz', '--libs'))
+     pylib = get_python_flags(cflags)
+-    gl_libs = ['-framework', 'OpenGL'] if is_macos else pkg_config('gl', '--libs')
++    gl_libs = ['-framework', 'OpenGL'] if is_macos else pkg_config('opengl', '--libs')
+     libpng = pkg_config('libpng', '--libs')
+     ans.ldpaths += pylib + font_libs + gl_libs + libpng
+     if is_macos:
+--- setup.py.orig	2020-07-04 09:55:13.275909507 +0200
++++ setup.py	2020-07-04 09:55:34.498908801 +0200
+@@ -632,7 +632,7 @@
+ 
+ 
+ def compile_glfw(compilation_database: CompilationDatabase) -> None:
+-    modules = 'cocoa' if is_macos else 'x11 wayland'
++    modules = 'cocoa' if is_macos else 'wayland'
+     for module in modules.split():
+         try:
+             genv = glfw.init_env(env, pkg_config, at_least_version, test_compile, module)

@@ -1,0 +1,11 @@
+--- glfw/glfw.py.orig	2020-07-04 10:34:31.533831020 +0200
++++ glfw/glfw.py	2020-07-04 10:34:47.395830492 +0200
+@@ -96,7 +96,7 @@
+         for p in ans.wayland_protocols:
+             ans.sources.append(wayland_protocol_file_name(p))
+             ans.all_headers.append(wayland_protocol_file_name(p, 'h'))
+-        for dep in 'wayland-client wayland-cursor xkbcommon dbus-1'.split():
++        for dep in 'wayland-client wayland-cursor xkbcommon'.split():
+             ans.cflags.extend(pkg_config(dep, '--cflags-only-I'))
+             ans.ldpaths.extend(pkg_config(dep, '--libs'))
+         has_memfd_create = test_compile(env.cc, '-Werror', src='''#define _GNU_SOURCE

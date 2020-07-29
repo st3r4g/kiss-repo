@@ -1,0 +1,3 @@
+https://github.com/kovidgoyal/kitty/releases/download/v0.18.1/kitty-0.18.1.tar.xz
+patches/nox.patch
+patches/glfw-no-dbus.patch

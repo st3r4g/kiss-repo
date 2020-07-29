@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+cmake . && make install

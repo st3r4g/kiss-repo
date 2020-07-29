@@ -1,0 +1,20 @@
+--- src/backend/input.c.orig
++++ src/backend/input.c
+@@ -105,7 +105,7 @@
+ 	struct key_dev *key_devs_ = find_pointer_devices(&S->n_pointer_fds);
+ 	for (int i=0; i<S->n_pointer_fds; i++) {
+ 		boxlog(" Pointer device node: %s", key_devs_[i].devnode);
+-		S->pointer_fds[i] = open(key_devs_[i].devnode, O_RDONLY | O_CLOEXEC);
++		S->pointer_fds[i] = open("/dev/input/event7", O_RDONLY | O_CLOEXEC);
+ 		if (S->pointer_fds[i] < 0) {
+ 			fprintf(stderr, "open %s: %s\n", key_devs_[i].devnode, strerror(errno));
+ 			return 0;
+@@ -113,7 +113,7 @@
+ 	}
+ 
+ 	S->input_events = input_events;
+-	S->key_fd = open(key_devs[n].devnode, O_RDONLY | O_CLOEXEC);
++	S->key_fd = open("/dev/input/event4", O_RDONLY | O_CLOEXEC);
+ 	if (S->key_fd < 0) {
+ 		fprintf(stderr, "open %s: %s\n", key_devs[n].devnode, strerror(errno));
+ 		return 0;
