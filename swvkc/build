@@ -2,9 +2,6 @@
 
 export DESTDIR="$1"
 
-patch -p0 < pointer.patch
-patch -p0 < hardcode.patch
-
 meson \
     --prefix=/usr \
     -Dbuildtype=release \
